@@ -1,0 +1,68 @@
+{% extends "index.html %}
+
+
+{% block search %}
+
+
+<form class="col-lg" action="{{url_for('search_by_title')}}">
+
+
+    <div class="form-row">
+    <div class="col-md-6 mb-3">
+    <label for="validationTitle">Title</label>
+    <input type="text" name="title" class="form-control" placeholder="Title" required>
+</div>
+
+<div class="col-md-6 mb-3"
+    <label for="validationYear">Year</label>
+    <input type="number" name="year" class="form-control" placeholder="2025">
+</div>
+
+
+</div>
+
+<button class="btn btn-primary" type="submit">Search</button>
+</form>
+      {% end block %}
+
+
+      {% block search_result %}
+
+
+      {% if movie %}
+
+      <div class="col-sm-3 mb-3">
+
+
+        <img src="{{movie.poster_path}}" class="img-thumbnail" alt="...">
+        </div>
+        
+        <div class="col-lg mb-3">
+        <div class="card" 
+         
+        <div class="card-body">
+              <h5 class="card-title">{{movie.title}}</h5>
+              <p class="card-text">{{movie.release_date}}</p>
+              <p class="card-text">{{movie.original_language}}</p>
+              <p class="card-text">{{movie.overview}}</p>
+              <p class="card-text">{{movie.popularity}}</p>
+              <p class="card-text">{{movie.vote_average}}</p>
+              <p class="card-text">{{movie.vote_count}}</p>
+        
+              
+            </div>
+          </div>
+         </div>
+
+
+         {% else %}
+         <div></div>
+
+         {% endif %}
+
+
+
+
+
+      {% endblock %}
+
